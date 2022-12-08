@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+#Springboot2.6后 SpringMVC 处理映射匹配的默认策略已从AntPathMatcher变为PathPatternParser。修改配置否则swagger启动报错
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+grpc:
+    client:
+      # gRPC的服务端名单@GrpcClient注解中会用到
+      mygrpc-server:
+        address: 'static://localhost:9091'
+        enableKeepAlive: true
+        keepAliveWithoutCalls: true
+        negotiationType: plaintext
+

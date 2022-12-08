@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package grpcprotocol;
+
+option java_multiple_files = true;
+option java_package = "com.example.grpcprotocol";
+option java_outer_classname = "FirstTestServiceProtos";
+
+
+message QueryInfoRequest {
+  int32  id = 1; //id
+  string  school = 2;
+  bool isBoy = 3 ;
+  repeated personalInfo personalInfoRecords = 4;
+  map<string, string> familyInfo = 5;
+}
+
+message personalInfo{
+  int64 identityNumber = 1;//身份证号
+  string name = 2;
+}
+
+message QueryInfoResponse {
+  int32  id = 1; //id
+  string name = 2; //姓名
+  string uuid = 3;
+  repeated subjectMarks records = 4;
+  map<string, string> subjectTeachs = 5;
+}
+
+message subjectMarks{
+  string subjectName = 1;
+  double score = 2;
+}
+
+//-------------------------------------------------
+
+message QuerySomeDataRequest{
+  int32 id = 1;
+}
+
+message QuerySomeDataResponse{
+  int32 id = 1;
+  repeated productInfo records = 2;
+}
+
+message productInfo{
+  int32 productId = 1;
+  string time = 2;
+}
+
+//-------------------------------------------------
+message SendBooksInfoRequest{
+  int32 id = 1;
+  map<string, string> data = 2;
+}
+
+message SendBooksInfoResponse{
+  int32 code = 1; // 返回值
+  string note = 2; //返回消息
+}
+
+//-------------------------------------------------
+message CalculateSumRequest{
+  int32 id = 1;
+  repeated int32 number= 2;
+}
+
+message CalculateSumResponse{
+  int32 code = 1; // 返回值
+  string note = 2; //返回消息
+  int32 sum = 3;
+}
+
+service FirstTestService {
+  //简单grpc
+  rpc QueryInfo(QueryInfoRequest) returns (QueryInfoResponse){};
+  //服务端流式grpc
+  rpc QuerySomeData(QuerySomeDataRequest) returns (stream QuerySomeDataResponse){};
+  //客户端流式grpc
+  rpc SendBooksInfo(stream SendBooksInfoRequest) returns (SendBooksInfoResponse){};
+  //双向流
+  rpc CalculateSum(stream CalculateSumRequest) returns (stream CalculateSumResponse){};
+}

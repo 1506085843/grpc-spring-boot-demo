@@ -1,0 +1,7 @@
+grpc:
+  server:
+    port: 9091 #grpc服务端默认监听端口
+    max-inbound-message-size: 4MB #grpc默认最大传输数据量大小为4MB,可修改此配置
+
+
+

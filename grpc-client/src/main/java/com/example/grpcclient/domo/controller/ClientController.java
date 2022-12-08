@@ -20,17 +20,6 @@ public class ClientController {
     ClientConsumer clientConsumer;
 
 
-//    {
-//        "boy": true,
-//            "id": 1,
-//            "personalInfos": [
-//        {
-//            "identityNumber": 53030,
-//                "name": "张三"
-//        }
-//  ],
-//        "school": "一中"
-//    }
     @PostMapping(value = "/v1/queryInfo", consumes = "application/json", produces = "application/json")
     @ApiOperation(notes = "queryInfo", value = "查询人员信息(简单grpc) ")
     public JSONObject queryInfo(@ApiParam(name = "人员信息") @RequestBody PersonInfoModel customerListModel) {

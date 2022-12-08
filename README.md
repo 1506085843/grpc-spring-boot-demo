@@ -1,9 +1,8 @@
 # grpc-spring-boot-demo
-使用spring-boot来实现grpc的简单示例
-
-# 这是一个使用 Spring Boot 和 gRPC 开发的示例微服务项目，使用 Java 版本 1.8.
+这是一个使用 Spring Boot 和 gRPC 开发的示例微服务项目，使用 Java 版本 1.8
 
 <img src="https://img.shields.io/badge/Language-Java-orange.svg">
+
 
 ## 项目模块说明:
 - grpc-client

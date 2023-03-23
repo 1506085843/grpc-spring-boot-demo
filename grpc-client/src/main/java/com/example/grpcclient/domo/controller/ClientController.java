@@ -19,7 +19,6 @@ public class ClientController {
     @Autowired
     ClientConsumer clientConsumer;
 
-
     @PostMapping(value = "/v1/queryInfo", consumes = "application/json", produces = "application/json")
     @ApiOperation(notes = "queryInfo", value = "查询人员信息(简单grpc) ")
     public JSONObject queryInfo(@ApiParam(name = "人员信息") @RequestBody PersonInfoModel customerListModel) {
